@@ -1,0 +1,12 @@
+@Joaolpridolficarvalho Where are you expecting to see a settings icon? (I use Optikey, but not in conversation mode. So I'm trying to orient myself.)
+
+If you are talking about the fact that you have a power button symbol in the lower right corner, instead of a back arrow symbol: that happens because you are in conversation only mode. You can change this setting in the management console.
+
+@Joaolpridolficarvalho To do what you're asking, you want to make sure you're running OptiKey Pro. You can see the various options on optikey.org (I think you might be running OptiKey Chat, which would explain why you aren't seeing more options.)
+
+The wiki can help orient you to the software and answer many questions.
+
+To quickly answer your specific questions:
+
+You will have to switch languages (within the OptiKey UI) in order to get suggestions in English and Portuguese. (So, OptiKey will generate suggestions only in English when you set its language to English. And only in Portuguese when the language is set to Portuguese. Doing both at the same time isn't currently possible, to the best of my knowledge.)
+By default, OptiKey Pro will insert text into whatever text field has focus (except when using the conversation keyboard, which is the keyboard shown in your photo). A scratchpad area is also present, but it mainly exists to make it easier to keep track of what you're typing without having to look back and forth between OptiKey and your target application.

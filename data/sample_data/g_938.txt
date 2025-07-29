@@ -1,0 +1,3 @@
+@kmcnaught I can duplicate this. Splash screen will appear on the right monitor, but dynamic keyboard does not. (This is on your latest build -- numbered AK-v9. And Windows 11 Home 24H2.)
+
+I don't need this functionality, but I'd be happy to help with testing when you get to that point.

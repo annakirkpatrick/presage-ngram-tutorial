@@ -1,0 +1,32 @@
+How OptiKey was being used
+OptiKey (primary/left) mouse click key was used with zoom locked on. I was in a Teams meeting where I was screensharing, and I tried to use the mouse click action with zoom to click on the screensharing toolbar. The overlay/toolbar was not visible in the zoomed in image.
+
+What the user expected to happen
+I expected to see the toolbar in the zoomed in view, and I expected to be able to click on a button.
+
+What the user actually experienced
+The overlay/toolbar was not visible in the zoomed in image.
+
+Version
+Operating system and version: Windows 11
+OptiKey Pro version 3.2.5.0
+Microsoft Teams version 24295.605.3225.8804
+Steps to reproduce the issue
+Start a call in Teams.
+Share your screen.
+Make sure mouse zoom is on.
+Use the primarly click key to try to zoom in on the screensharing toolbar.
+Any other information that helps to describe and/or reproduce the problem
+Interestingly, the screen sharing toolbar is also not captured in screenshots. And in fact the toolbar disappears as soon as you press win+shift+s.
+
+I just tested and confirmed that the same behavior occurs with all the standard mouse actions. There's nothing special about left/primary click. Any mouse action with a zoom step shows the same behavior.
+
+@tqphan When I use the magnifier in lens view, I just see a black rectangle instead of the zoomed in view. this seems to be somewhat of a known problem, but I wasn't able to quickly resolve it with the strategies suggested.
+
+Maybe someone else can test it out?
+
+Just to be clear, I was seeing a black rectangle even when trying to zoom in on the desktop. Hopefully my (solid gray) desktop background doesn't have drm...
+
+@tqphan I was able to resolve the issue with the lens view of Windows Magnifier only showing a black rectangle by updating my graphics drivers.
+
+I can now verify that the Teams screen sharing toolbar does NOT appear in the zoomed in view in windows magnifier, lens mode.

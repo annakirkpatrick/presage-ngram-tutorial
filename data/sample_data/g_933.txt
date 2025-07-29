@@ -1,0 +1,85 @@
+App previews from taskbar
+On my personal PC:
+-appears behind docked or floating keyboard
+-appears behind keyboard regardless of whether hovering over with the mouse or using keyboard navigation with win+t and arrow keys
+
+On my work PC:
+-When using a docked keyboard and navigating with keystrokes (win+t, arrow keys), Optikey disappears when focus moves to a window preview. (This is really bad behavior because it has the potential to strand an OptiKey-only user with no way to navigate anywhere without using a physical keyboard or mouse!)
+-When using the docked keyboard and navigating with the mouse, window previews are hidden underneath the docked keyboard.
+-Floating keyboards have the same behavior as docked keyboards.
+
+System tray hidden icons preview
+On my personal PC:
+-appears behind docked or floating keyboard
+-appears behind keyboard regardless of whether mouse or keyboard navigation is used to bring up the hidden icons
+
+On my work PC:
+-Same behavior as personal pc
+
+Volume etc controls
+On my personal PC:
+-Correctly moves up when Optikey is docked to bottom of screen
+-Hides behind Optikey keyboard docked to the right of the screen
+-Always hides behind floating keyboard
+
+On my work PC:
+-Always hides behind docked (right or bottom) or floating keyboards
+
+Notifications sidebar / calendar
+On my personal PC:
+-Correctly moves up when Optikey is docked to bottom of screen
+-Correctly shrinks when Optikey is docked to top of screen
+-Hidden behind Optikey keyboard docked to right of screen
+-Always behind floating keyboard
+
+On my work PC:
+-Does not move out of the way for any docked keyboard. Will be partially visible (and partially obscured) when the keyboard is docked to top or bottom. Is totally hidden by keyboard docked to right.
+-Always behind floating keyboard
+
+Win+Tab preview/navigation of all windows
+On my personal PC:
+-More-or less correctly moves up with Optikey docked at bottom
+-Fails to adjust with Optikey docked at the side
+-Doesn't adjust when Optikey docked to top
+-Is always behind a floating keyboard
+
+On my work PC:
+-does not move up when Optikey is docked at bottom. Desktops are completely hidden, along with some windows
+-Fails to adjust with Optikey docked at the side
+-Doesn't adjust when Optikey docked to top
+-Is always behind a floating keyboard
+
+Alt+tab window preview / navigation
+On my personal PC:
+-Correctly shrinks/moves out of the way when Optikey is docked to top or bottom
+-Does not adjust for a keyboard docked to the right or left; generally will be partially hidden
+-Always behind floating keyboard
+
+On my work PC:
+-Does not adjust for any docked keyboards. Some window previews are always hidden.
+-Always behind floating keyboards
+
+Start menu
+On my personal PC:
+-Correctly jumps up and shrinks for keyboard docked to bottom
+-Correctly shrinks for keyboard docked to top
+-Does not move out of the way for keyboard docked to left
+-Does not move for floating keyboard
+
+On my work PC:
+-Does not adjust for any docked keyboards.
+-Always behind floating keyboards.
+
+Windows search (win+s)
+On my personal PC:
+-Hides completely under keyboard dock to bottom (Note: The Windows search UI its usually tall enough that it would partially show over the top of the keyboard, but Windows seems to be shrinking it so that it fits entirely under the docked keyboard.)
+-Correctly shrinks to fit below keyboard docked to the top
+-Does not move to accommodate keyboard docked to left
+-Always under floating keyboard
+
+On my work PC:
+-Does not adjust for any docked keyboards. (The top of the search UI will show above a keyboard docked to the bottom, unlike on my personal machine.)
+-Always behind floating keyboards.
+
+System details:
+Personal

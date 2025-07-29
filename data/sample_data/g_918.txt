@@ -1,0 +1,19 @@
+@kmcnaught I haven't seen the specific behavior you're describing where there's a gap between the taskbar and Optikey. (I mostly use floating keyboards, but I tried with a docked keyboard and couldn't reproduce.) I'm using 2 monitors with a desktop PC. Optikey is always on the primary and leftmost monitor.
+
+My work hasn't yet upgraded to 24H2, so I'm still on 23H2. I wonder if that's the difference. (My personal PC is still Win 10.)
+
+I have seen several other issues you document:
+-Expanded system tray and similar UI elements hide behind docked keyboards. (I can also confirm that this was never an issue on Win 10.) This includes volume/audio controls and the calendar, in addition to the expanded system tray.
+-Weird behaviors with Voice Access. Usually they end up in a "checkerboard" pattern, but sometimes Voice Access ends up on top of OptiKey. These behaviors are weird but I haven't found them to cause actual problems. Here's an example of what I usually see with OptiKey and Voice Access. The grey in the upper right is my desktop background.
+
+I have seen some additional UI elements (not directly related to system tray) hide behind docked keyboards, as well. A couple that come to mind:
+-The screen snipping toolbar (win+shift+s)
+-The screen sharing overlay/toolbar in MS Teams.
+
+I can confirm that I see the same behavior where the preview of the open windows hides behind the docked keyboard. The preview is hidden regardless of whether you hover over with the mouse or use win+t to focus the task bar and then navigate with arrow keys.
+
+It is interesting to contrast this with the behavior in Issue 925, where any keyboard (docked or floating) is hidden as soon as the window preview(s) appear.
+
+In testing this, I also uncovered a (related?) behavior where part of the UI for window snapping can be hidden underneath a docked keyboard. For example, say I have a keyboard docked to the left hand side of my screen. If I then press win+right arrow, my currently active window will move to the right hand side of the screen (note that this is the right hand half of my whole monitor, not the right hand half of the available space!). Windows then creates UI allow me to pick another window to snap into what it thinks is the remaining space on the left hand side of my screen (that space is actually occupied by my docked keyboard), but I can't see that UI. The result can be quite confusing, since focus doesn't go into the window I just snapped, but instead stays in the UI under the docked keyboard.
+
+Since Windows versions seem to be relevant to some of this:

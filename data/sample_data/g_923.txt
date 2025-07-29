@@ -1,0 +1,13 @@
+@kmcnaught I've seen a couple variations of this.
+
+First, no ngram models are necessary to reproduce this behavior. Just create a dynamic key that outputs at least, say, 30 characters. Put focus in notepad and press the key. The behavior isn't 100% consistent, but frequently not all the characters will be entered. Activating the key again will often "pick up where it left off" from the previous key activation and continue entering the text that wasn't finished before. Characters will also sometimes be omitted.
+
+Well, now that I write that out, I'm not sure it's exactly the same behavior, but it's probably related.
+
+I've seen a couple different assistive tech tools struggle with Win 11 notepad. (Or, probably more accurately, I've seen Win 11 notepad break many AT tools.)
+-Dragon NaturallySpeaking 16 will often not enter the whole spoken utterance, often cutting off in the middle of a word.
+-As you noted, AutoHotKey can show some weird behavior.
+
+Interestingly, Microsoft's own Voice Access doesn't seem to have these particular problems with Notepad.
+
+I agree that it's good to document this, but it's probably not something OptiKey could fix, even we wanted to put resources towards it.

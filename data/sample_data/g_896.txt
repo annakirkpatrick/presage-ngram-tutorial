@@ -1,0 +1,20 @@
+How OptiKey was being used
+Dynamic keyboard, DirectInput gamepad trigger (have also tried standard keyboard and dwell trigger, same behavior in both cases)
+
+I selected the win key and then the l key.
+
+What the user expected to happen
+Windows should lock the screen.
+
+What the user actually experienced
+The letter 'l' was typed in the target application. The screen did not lock.
+
+Version
+Windows 10
+OptiKey version 3.2.4.0
+Steps to reproduce the issue
+type win then l
+Any other information that helps to describe and/or reproduce the problem
+I have verified that win+l does lock the screen when using a physical keyboard.
+
+Some other win shortcuts do work, e.g. win+v for clipboard history (requires enabling clipboard history in Windows settings)

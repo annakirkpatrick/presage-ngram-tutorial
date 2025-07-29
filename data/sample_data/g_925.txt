@@ -1,0 +1,44 @@
+I recognize this may be a Windows behavior we can't change. I thought it was good to document regardless.
+
+How OptiKey was being used
+I was trying to navigate to a specific instance of an application using the taskbar. Using OptiKey, I pressed Win+T to move focus to the taskbar. Then I used the arrow keys to navigate to the app I wanted. Then I pressed enter to select that app. This opens the visual list of all windows of that app.
+
+Note: I have the setting "Combine Taskbar buttons" set to "Always, hide labels" because this allows me to do most of my application switching using win+shift+num with a given num always corresponding to the same application. (By virtue of pinning apps to the taskbar in fixed positions.)
+
+What the user expected to happen
+I expected that I could continue to use OptiKey to use the arrow keys and enter to select the window I wanted.
+
+What the user actually experienced
+OptiKey disappeared and only the windows of that specific app were shown.
+
+Version
+Windows 10
+OptiKey version 3.2.5.0
+Also tested on Windows 11 (w/ Optikey v3.2.5.0); behavior is the same.
+
+Steps to reproduce the issue
+Set the taskbar setting "Combine Taskbar buttons" set to "Always, hide labels"
+Open multiple windows of a specific app.
+Press win+t
+Use arrow keys to navigate to the app where you have multiple windows
+Press enter
+Notice that OptiKey disappears, preventing you from pressing any more keys.
+Any other information that helps to describe and/or reproduce the problem
+Occurs with both floating and docked keyboards.
+
+I now have access to personal Windows 11 machine, and I can't reproduce this behavior on my personal Windows 11 machine. This issue happens on my work Windows 11 machine (and also did happen on my old personal Windows 10 machine).
+
+Note: Issue 926 also is reproducible on my work Windows 11 machine but not my personal Windows 11 machine.
+
+On both Windows 11 machines, I've looked through the taskbar settings, specifically the task bar behavior settings in Windows, and I can't find any differences between the two systems. But I would welcome suggestions of anywhere else I should look for potentially relevant settings.
+
+Both machines are running the same version of Optikey: 3.2.5.0
+
+Given that the personal machine is running a newer version of Windows, I have some hope that this is a windows bug that Microsoft may have fixed.
+
+Version details:
+Personal machine (bug doesn't happen here):
+OptiKey 3.2.5.0
+Windows version info:
+
+Tagging @kmcnaught since we just talked about this issue.

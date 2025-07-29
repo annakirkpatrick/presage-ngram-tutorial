@@ -1,0 +1,15 @@
+A couple quick comments/suggestions:
+
+I agree that you could get unintended activation of the last key when selecting near the edge of the screen. But I agree with Kirsty that this is likely to be minor for experienced users with high-accuracy trackers (and good lighting, geometry, etc.)
+One partial remedy would be to only execute the previous action if the user is looking somewhere at the screen but not at the keyboard. So, if the tracker thought the user was looking slightly off the screen when the user was really looking at a key near the edge of the screen, then the previous key wouldn't activate. This would also help with some accidental presses. (Most of my accidental presses come when I'm physically shifting position and not looking at the screen.)
+Adding a time-out might make sense. So, if the last action occurred more than, say, 5 minutes ago, then clear that memory and don't repeat it even if the switch is pressed. The exact time could be a setting.
+@kmcnaught If you have a binary available, I'd be happy to test it out and see how it would actually fit in my workflow and how often accidental activations (whether from trying to press a key near the screen edge or from just accidental switch activations) are an issue.
+@kmcnaught I don't think were quite communicating regarding suggestion 2. I was talking specifically about distinguishing between the user is looking at the screen and when the user is not looking at the screen. In other words, I was proposing three cases for what to do when the switch is pressed:
+
+User is looking at the keyboard: execute key at gaze point.
+User is looking at the screen at anything except the keyboard: repeat previous key.
+User is not looking at the screen: do nothing.
+The reason I think this would be helpful is related to the fact that tracking accuracy degrades near the edges of the screen. So, the largest opportunity for missed keys occurs near the edge of the screen.
+
+Regardless of that, I agree with you that the simplest implementation without complicating logic may in fact be best. (Or, at the very least, the extra time to do a more complete implementation may not be worth it.) I've got the binary you sent up and running. I will let you know how it goes.
+

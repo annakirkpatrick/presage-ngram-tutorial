@@ -1,0 +1,63 @@
+@kmcnaught Broadly, I like this idea and can see myself using it.
+
+I think there are some good ideas across all three of these options. I'm going to give some comments on each of them and then pull together the pieces I think are best into a new proposal.
+
+For the case where you aren't going to resize a window, I don't like the idea of specifying the top left corner location. I think it makes more sense to specify centerX and centerY, rather than left and top. Alternatively, it might make sense to simply center it within the rectangle given by left, top, right, and bottom. (My reasoning here is that you would want a key to work with windows of many different sizes. And specifying top left makes it impossible to center windows of different sizes within a desired screen area using a single key.) After having written the rest of my response, I think the best approach is to center within the rectangle given by left, top, right, and bottom, as it works much more elegantly with other options, compared to specifying a center point.
+If we have a good indicator of whether it makes sense to resize a window, I like the idea of using it. I do think it's probably good to preserve backwards compatibility so that behavior doesn't change after an update of Optikey. (And if a user happens to be using an application where our heuristic using WS_THICKFRAME isn't good, then we do want to preserve the ability to force a resize.)
+I don't like the idea of a 2 step process. (But I do like the way you are thinking about parameterizing.) I have a few reasons for not liking the idea of a 2 step process: EDIT: Reread your proposal. What you're suggesting is actually not very complex to implement. So, you can ignore my comments about complexity. But I still think the value is limited (but not zero),
+It adds complexity without generality. If we want to allow a subsequent press(es) of a key to do something different, I am all for that! If we want to allow a double tap of a switch on a key to have a different effect, I like that too. I can think of lots of cool things to do with either of those concepts. But implementing it just for this one specific case is (I assume) a fair bit of work without a big benefit.
+In the vast majority of cases, I know in advance whether or not I want to (force) resize a given window. It would make more sense to me to have a "move and force resize" key and a "just move" key on my keyboard.
+Opening applications almost always comes with a delay, and I think these resize operations can come with a small delay too. As someone who uses a switch for my key selection trigger, I would want to just do a quick double tap when I knew I wanted to resize a window. But I'm suspicious that that wouldn't work due to the delays. (Maybe this isn't actually an issue. I don't have a good way to test the delay of the actual MoveWindow operation.)
+I usually combine other actions with MoveWindow on a single key. How would be even define behavior in this case? If I press the key again, do I just get the resize without other actions? Do other actions get repeated but the MoveWindow now performs a resize? What if there are multiple MoveWindow actions on a single key (perhaps acting on different windows)? It just gets super complicated to define the "correct" behavior! EDIT: Reread your proposal. The behavior is well defined because it's based on the window position. But it does get complicated to actually use this functionality in a nontrivial workflow.
+Putting all of that together, I think a minimally useful expansion of this functionality would parameterize a resize strategy like you contemplate under option 3. I'm envisioning resizeStrategy=force, fit, moveOnly. If you stick with requiring left, top, right, and bottom, then
+
+force would keep the current behavior,
+fit would keep the current behavior for any dimension where the window is currently larger than or equal to the size of the rectangle and would center in any dimension where the window is currently smaller than the size of the rectangle
+moveOnly would center within the given rectangle
+I actually think I like this strategy better than either aligning the top left corner or specifying center coordinates. I think this is the better strategy because that rectangle will often correspond to an available screen region for "working space." (You could additionally allow either top and left or centerX and centerY for the moveOnly resize strategy only.)
+I think my ideal implementation would add two more resize strategies:
+
+resizeStrategy=soft as you envision in option 2. This would check the WS_THICKFRAME style. If it appears the window is intended to be resizable, then the function would resize the window to the given rectangle. If it appears the window is not meant to be resizable, then this function would move the window to the center of the given rectangle.
+resizeStrategy=softExpandForceFit (or rename that to something better...) This option would check to see if the window is meant to be resizable, just like resizeStrategy=soft. If the window it is meant to be resizable, it resizes to the rectangle. If the window is not meant to be resizable, this option still forces it to shrink in any dimensions where it is too large to fit within the rectangle. This is meant to address an edge case/create a safety net. My intent here is to address any cases where a window might be too large to fit within the user's available work space. Admittedly, a window that is too big and not meant to be resized may not behave nicely when force resized. So, I'm really not sure how frequent this edge case would be or whether this option would actually meaningfully address it.
+TLDR:
+
+When moving a window without resizing, I think it's better to center within a rectangle (or specify a center point), rather than specifying the top left corner.
+I think the "press key again to resize" concept adds a lot of complexity without adding much value.
+I think having some sort of a "fit to rectangle" option which shrinks but doesn't expand is great!
+If we have good heuristics for when a window is meant to be resized, I would say we should use them, unless that adds a lot of complexity.
+
+@kmcnaught I'm testing out the implementation, and I want to highlight some unintuitive behavior with maximized windows. Here are some behaviors I would intuitively expect:
+
+a maximized window to always shrink to fill the specific region when MoveWindow is used with ResizeStrategy=ForceFit (and also SoftFit unless it's a non-resizable window)
+a maximized window to move (often partially offscreen) without changing size when MoveWindow is used with ResizeStrategy=Move
+Neither of these are the actual behavior. Instead, the window is resized or moved relative to the last restored size of that window.
+
+Even more confusing, this same behavior also applies to the pseudo-tiling (snapping?) that Windows supports. So, if you've tiled a window to be, say, 1/4 of your screen and then you use a MoveWindow command with Move or Fit, the window size is treated as the last restored size before you did the tiling action in Windows.
+
+It would make more sense to me for these commands to start from the window dimensions that the user is actually seeing. But, if that's hard to do, at minimum, these are limitations/behaviors that should be documented.
+
+Also, we should probably document that the Move option can easily result in the title bar being entirely off screen. (This one isn't at all a bug in my opinion, but it could freak people out.)
+
+If my descriptions don't make sense, let me know. I can record a screen capture.
+
+I think this may be a behavior difference between "fullscreen" and "maximize."
+
+I may be using those terms incorrectly, but my understanding is that F11 generally enters a fullscreen mode (in apps that support it), and those windows do usually ignore the restore command.
+
+Maximize is done with win+up arrow or with the button in the window title bar. (And win+down arrow will restore a maximized window.) I've been testing with win+up arrow to maximize windows.
+
+Regardless, the new version you sent fixes the issues I noted above.
+
+There is one weird edge case I noticed today. A maximized window seems to grow slightly (at least in height) when the move command is used.
+
+To demo this, you can use a key like this
+
+(Note that, at least with my monitor's resolution, 96% is just the right height for a window to perfectly fit above the taskbar.)
+
+It's easiest to see this if you use a window has a bottom status bar or similar. I used vscode. First maximize the window with win+up arrow, then use the MoveWindow key. Note that the status bar at the bottom on the window is now partially hidden under the taskbar.
+
+To be fair, I can't think of a single useful workflow where this behavior would be an issue....so I don't know that we really need to address it.
+
+No, that's not what I'm seeing. I see the application shifted left and slightly taller.
+
+Any chance you have your task bar set to only appear when you move the mouse nearby? That might change the size of the maximized application. (If that's not the difference, I can share a screen recording.)

@@ -1,0 +1,7 @@
+I've seen this behavior in 3.2.4 pre-release 3, but I don't know if it exists elsewhere. I only recently started using floating keyboards, so it's possible that this isn't a new issue.
+
+When performing a mouse action with a zoom step, if the zoomed-in area overlaps with the floating keyboard, a keyboard key 'underneath' the zoomed-in view can be pressed when a point is selected.
+
+It's a little tricky to explain, so I made a screen capture video: https://youtu.be/nONq2962e2s
+
+Here's the simple dynamic keyboard used in the video

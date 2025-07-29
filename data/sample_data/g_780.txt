@@ -1,0 +1,34 @@
+When using the keyboard key trigger mechanism, if the key is pressed while the gaze is not detected, OptiKey generates a large red "Uh-oh!" message suggesting that the user check that their pointing device is plugged in, turned on, calibrated, etc. (I assume that the same message appears when using the mouse click trigger mechanism.)
+
+As someone who uses the keyboard key trigger mechanism (by means of external switches that emulate keyboard keypresses), I see this message quite a bit. Sometimes I just bump one of my switches while not even looking at the screen. Sometimes the eye tracker just loses my gaze for a moment.
+
+In either case, it's annoying. It disrupts the flow of my work. And it's especially bad if it happens while I'm screen sharing on a Teams call. I have had coworkers get legitimately a bit freaked out thinking that something was wrong.
+
+I absolutely understand the utility of this message for new users who may not understand why OptiKey isn't working.
+
+As an advanced user, though, I would like the option to disable this message and the accompanying audio.
+
+If I'm not seeing the orange highlights on the keyboard, then I know that OptiKey isn't detecting my eyes and I need to address that. I don't need the error message.
+
+@kmcnaught just a few thoughts regarding your suggestions.
+
+I can absolutely see value in, say, not showing up more than three error messages of this type in a five minute block of time. This would solve the pretty common issue where user (or helper) is fumbling around trying to set up or position a switch and the switch may be activated dozens of times within just a couple minutes. (I do sometimes run into this when I am setting up switches. I don't personally care about error messages in this context, but I can see how they could be annoying.)
+
+For my use case, I do see more value in the second suggestion. For example, maybe you would only show the error after three consecutive switch presses without the gaze being detected. This would solve the issue sometimes created when the eye tracker just momentarily loses the gaze point.
+
+Personally, I would still prefer to just be able to turn off the errors. But I do think a gentler error scheme could be nice for new users.
+
+
+I frequently exceed 20 words a minute when typing with Optikey and a switch (without any word prediction). 20 words a minute is 100 characters a minute, which means I'm likely hitting two characters per second in the faster parts of my typing. My point is that my eyes are moving quite quickly, and we should be careful with what a "momentary lapse" actually means.
+
+If, for example, you allowed for 0.5 second lapse and still interpreted the switch press to mean the last known gaze point, that could easily lead to erroneous input for a fast gaze typist. I would think much shorter lapses (e.g. 100 ms) would be good candidates for filling in with the last known gaze point.
+
+If you write some code to do this (or it turns out that this code already exists), I would be happy to do some testing with different time intervals to see at what point I start getting erroneous input.
+
+
+@kmcnaught The behavior I see when using OptiKey suggests that it's probably already a little forgiving in terms of missing a single data point. Not sure, but I wonder if this is already done. (Either in OptiKey or perhaps in Tobii's software.)
+
+Actually, the fact that smoothing is used suggests it probably is done. If you're averaging (in a complicated way, granted) recent measurements, that gives an easy way to fill in a single missing point.
+
+@JuliusSweetland I agree to changing to a gentler warning sound and removing the toast error banner would be a totally acceptable solution. (And the fact that the user can select sounds in OptiKey would, I think, mean that the warning could be completely removed to selecting a "blank" sound for that warning.)
+
