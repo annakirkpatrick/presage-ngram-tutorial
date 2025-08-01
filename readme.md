@@ -19,3 +19,10 @@ There are  a few reasons you might want to train your own N-gram language models
 The English language N-gram model included with Presage is based on a single novel, _The Picture of Dorian Gray_ by Oscar Wilde, which was published in 1890. The choice of such an old novel was surely deliberate to avoid any copyright issues, but it also means that neither the writing style nor the vocabulary are representative of most present-day writing.  By choosing training text which is more representative of the intended use case (e.g. the user's own past writing), substantial performance gains can be achieved.
 
 # Repository structure and getting started
+
+Top-level directories are as follows: 
+- `tutorial` contains numbered markdown files comprising the tutorial. These can be viewed on Github or locally (using a local markdown viewer).
+- `scripts` contains Python scripts for data preprocessing. These are used in the tutorial.
+- `sample_data` contains some sample data that you can use to run through the tutorial before using your own training data.  The sample data is plain text files containing my own issue posts and comments from the Optikey Github repository.
+
+To get started, go to [the Prerequisites file](tutorial/0_prerequisites.md).

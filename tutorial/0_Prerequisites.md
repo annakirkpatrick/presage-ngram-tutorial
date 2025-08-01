@@ -43,16 +43,3 @@ operable program. Check the spelling of the name, or if a path was included, ver
 is correct and try again
 ```
 
-# Clone the repository
-
-In Powershell, navigate to a location on your file system where you want to keep your work.  
-
-```
-cd C:\path\to\project\directory
-```
-
-Then, clone this repository. This will create a local copy of this tutorial along with all the scripts and sample data.
-
-```
-git clone https://github.com/annakirkpatrick/presage-ngram-tutorial.git
-```
