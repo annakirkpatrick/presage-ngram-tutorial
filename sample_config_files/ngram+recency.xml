@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Presage>
+    <ContextTracker>
+        <LOGGER>ERROR</LOGGER>
+        <LOWERCASE_MODE>yes</LOWERCASE_MODE>
+        <ONLINE_LEARNING>yes</ONLINE_LEARNING>
+        <SLIDING_WINDOW_SIZE>80</SLIDING_WINDOW_SIZE>
+    </ContextTracker>
+    <PredictorActivator>
+        <COMBINATION_POLICY>Meritocracy</COMBINATION_POLICY>
+        <LOGGER>ERROR</LOGGER>
+        <MAX_PARTIAL_PREDICTION_SIZE>60</MAX_PARTIAL_PREDICTION_SIZE>
+        <PREDICT_TIME>1000</PREDICT_TIME>
+    </PredictorActivator>
+    <PredictorRegistry>
+        <LOGGER>ERROR</LOGGER>
+        <PREDICTORS>DefaultSmoothedNgramPredictor DefaultRecencyPredictor</PREDICTORS>
+    </PredictorRegistry>
+    <Predictors>
+        <DefaultRecencyPredictor>
+            <CUTOFF_THRESHOLD>20</CUTOFF_THRESHOLD>
+            <LAMBDA>1</LAMBDA>
+            <LOGGER>ERROR</LOGGER>
+            <N_0>1</N_0>
+            <PREDICTOR>RecencyPredictor</PREDICTOR>
+        </DefaultRecencyPredictor>
+        <DefaultSmoothedNgramPredictor>
+            <COUNT_THRESHOLD>0</COUNT_THRESHOLD>
+            <DBFILENAME>C:\Program Files\presage\share\presage\custom_n_gram.db</DBFILENAME>
+            <DELTAS>0.01 0.1 0.89</DELTAS>
+            <DatabaseConnector>
+                <LOGGER>ERROR</LOGGER>
+            </DatabaseConnector>
+            <LEARN>false</LEARN>
+            <LOGGER>ERROR</LOGGER>
+            <PREDICTOR>SmoothedNgramPredictor</PREDICTOR>
+        </DefaultSmoothedNgramPredictor>
+    </Predictors>
+    <ProfileManager>
+        <AUTOPERSIST>false</AUTOPERSIST>
+        <LOGGER>ERROR</LOGGER>
+    </ProfileManager>
+    <Selector>
+        <GREEDY_SUGGESTION_THRESHOLD>0</GREEDY_SUGGESTION_THRESHOLD>
+        <LOGGER>ERROR</LOGGER>
+        <REPEAT_SUGGESTIONS>yes</REPEAT_SUGGESTIONS>
+        <SUGGESTIONS>12</SUGGESTIONS>
+    </Selector>
+</Presage>
