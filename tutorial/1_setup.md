@@ -36,3 +36,5 @@ Then run `create_data_dirs.py`:
 ```
 python .\create_data_dirs.py
 ```
+
+After verifying that the directories have been created, you can proceed to [Section 2: Data Preprocessing](./2_data_preprocessing.md).

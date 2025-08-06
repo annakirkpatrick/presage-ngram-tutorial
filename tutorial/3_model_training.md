@@ -56,3 +56,5 @@ The `-n` option specifies the cardinality of the N-gram. Note that I've used the
 The `--append` option should append to the existing output file, instead of overwriting it. However, in my testing, `text2ngram` seems to always append to the output file and never overwrite it. I've left the `--append` option in the commands both for clarity and because it's possible that `text2ngram` may behave as documented in other situations.  If you want to overwrite a db file, just delete it first.
 
 In addition to the options used here, `text2ngram` also has `--help` and `--version` options which just print the corresponding information to the terminal.
+
+If you want to test your model's performance, proceed to [Section 4: Model Testing](./4_model_testing.md).

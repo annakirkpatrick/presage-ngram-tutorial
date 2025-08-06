@@ -43,3 +43,5 @@ operable program. Check the spelling of the name, or if a path was included, ver
 is correct and try again
 ```
 
+Once everything is installed and running correctly, you can preceed to [Section 1:  Setup](./1_setup.md).
+

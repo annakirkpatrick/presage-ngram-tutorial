@@ -24,5 +24,6 @@ Top-level directories are as follows:
 - `tutorial` contains numbered markdown files comprising the tutorial. These can be viewed on Github or locally (using a local markdown viewer).
 - `scripts` contains Python scripts for data preprocessing. These are used in the tutorial.
 - `sample_data` contains some sample data that you can use to run through the tutorial before using your own training data.  The sample data is plain text files containing my own issue posts and comments from the Optikey Github repository.
+- `sample_config_files` contains two simple configuration files for Presage, useful for testing the performance of your models. Do not use these configurations for actual assistive technology applications.
 
 To get started, go to [the Prerequisites file](tutorial/0_prerequisites.md).

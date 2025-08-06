@@ -16,7 +16,7 @@ If you just want to build a model from your training corpus and don't intend to 
 
 Presage has tools that you can use to assess the quality of your models and other parameters. If you want to make use of these, you might consider one of the following strategies:
 
-1. If you're training on a large corpus of text from the user, consider setting aside (preferably a random) 10-20% of the data as "testing" data. Use the remaining data for training the N-gram model.
+1. If you're training on a large corpus of text from the user, consider setting aside (preferably a random) 10-30% of the data as "testing" data. Use the remaining data for training the N-gram model.
 2. If you only have a small amount of text written by the user and intend to incorporate other training data sources, consider using the text written by the user as testing data and only training on other sources. The user-supplied testing data can help you identify the best training data.
 3. If you're creating a new N-gram model to support a new language, consider setting aside (preferably a random) 10-20% of the data as "testing" data. Use the remaining data for training the N-gram model.
 
@@ -50,7 +50,7 @@ By default, the `remove_unwanted_entities.py` script removes the following.
 | Reddit-style usernames | u/username | Usually not typed out (generally would use completion within Reddit UI) |
 | @-style usernames | @username | Usually not typed out (generally would use completion within website UI) |
 | email addresses | somebody@domain.com | Usually not typed out (generally would use copy and paste or application-level autocomplete) |
-| contractions | haven't | Presage's N-gram  builder automatically strips out punctuation including apostrophes (and this isn't easily configurable). So, "haven't" is learned incorrectly as "haven" and "t". Note: Presage can learn contractions from user input. |
+| contractions and possessives | haven't | Presage's N-gram  builder automatically strips out punctuation including apostrophes (and this isn't easily configurable). So, "haven't" is learned incorrectly as "haven" and "t". Note: Presage can learn contractions and possessives from user input. Additional note: A better way to handle contractions would probably be to expand them, e.g. haven't -> have not|
 
 The script takes 2 arguments: an input file to read text from, and an output file to write text to.
 
@@ -64,6 +64,8 @@ Your training text is now ready to build an N-gram model.
 
 # Notes on preprocessing:
 A few notes:
-- It is not necessary to remove punctuation from the training text. Presage's text2ngram tool (which we will use in the next step) handles this automatically.
-- Similarly, we don't need to convert text to lower case. Text2ngram has an option to handle this for us.
-- Strictly speaking, it is not necessary to combine the training text into one large file, as text2ngram.exe will accept multiple input files. I've chosen to combine all training text because it makes both the text cleaning step and the actual N-gram training simplier to explain.
+- It is not necessary to remove punctuation from the training text. Presage's `text2ngram` tool (which we will use in the next step) handles this automatically.
+- Similarly, we don't need to convert text to lower case. `Text2ngram` has an option to handle this for us.
+- Strictly speaking, it is not necessary to combine the training text into one large file, as `text2ngram` will accept multiple input files. I've chosen to combine all training text because it makes both the text cleaning step and the actual N-gram training simplier to explain.
+
+You are now ready to proceed to [Section 3: Model Training](./3_model_training.md).
